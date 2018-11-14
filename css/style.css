@@ -1,5 +1,15 @@
 /* -------------------------------- 
 
+Root variables
+
+-------------------------------- */
+
+:root {
+  --row-height: 50px; 
+}
+
+/* -------------------------------- 
+
 Primary style
 
 -------------------------------- */
@@ -71,7 +81,7 @@ Main Components
   }
   .cd-schedule .timeline li {
     position: relative;
-    height: 50px;
+    height: var(--row-height);
   }
   .cd-schedule .timeline li::after {
     /* this is used to create the table horizontal lines */
@@ -123,9 +133,9 @@ Main Components
   flex-direction: row;
   align-items: stretch;
   width: 100%;
-  height: 5em
+  height: var(--row-height);
 }
-.events > ul > li {
+.cd-schedule .events > ul > li {
   flex: 1 
 }
 
@@ -173,7 +183,7 @@ Main Components
   position: relative;
   padding: 0 5%;
   /* force its children to stay on one line */
-  display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   overflow-x: scroll;
@@ -238,7 +248,7 @@ Main Components
   .cd-schedule .events .top-info {
     /* vertically center its content */
     display: table;
-    height: 50px;
+    height: var(--row-height);
     border-bottom: 1px solid #EAEAEA;
     /* reset style */
     padding: 0;
@@ -254,9 +264,8 @@ Main Components
     margin-bottom: 0;
   }
   .cd-schedule .events .events-group > ul {
-    height: 950px;
     /* reset style */
-    display: block;
+    display: flex;
     overflow: visible;
     padding: 0;
   }
@@ -337,6 +346,12 @@ Main Components
   margin-bottom: .2em;
 }
 
+/* -------------------------------- 
+
+Colors and hovers states
+
+-------------------------------- */
+
 .cd-schedule .single-event[data-event="event-1"],
 .cd-schedule [data-event="event-1"] .header-bg {
   /* this is used to set a background color for the event and the modal window */
@@ -373,6 +388,13 @@ Main Components
 .cd-schedule .single-event[data-event="event-4"]:hover {
   background: #f7bd7f;
 }
+
+
+/* -------------------------------- 
+
+Modal Popups
+
+-------------------------------- */
 
 .cd-schedule .event-modal {
   position: fixed;
