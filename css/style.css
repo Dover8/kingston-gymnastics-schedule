@@ -112,6 +112,47 @@ Main Components
   z-index: 1;
 }
 
+/*
+#################
+     Layout 
+#################
+*/
+
+.cd-schedule .events > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  height: 5em
+}
+.events > ul > li {
+  flex: 1 
+}
+
+/*
+#################
+     Styles 
+#################
+*/
+
+.cd-schedule .events > ul {
+  margin: 0;
+  padding: 0
+}
+.cd-schedule .events > ul > li {
+  padding: 5px;
+  list-style: none
+}
+.cd-schedule .events > ul > li:first-of-type {
+  padding-left: 0
+}
+.cd-schedule .events > ul > li:last-of-type {
+  padding-right: 0
+}
+.cd-schedule .events > ul > li > div {
+  background: #ffffff
+}
+
 .cd-schedule .events .events-group {
   margin-bottom: 30px;
 }
