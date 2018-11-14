@@ -88,6 +88,7 @@ jQuery(document).ready(function($){
 
 	SchedulePlan.prototype.placeEvents = function() {
 		var self = this;
+		var previousOverlaps;
 		this.singleEvents.each(function(){
 			//place each event in the grid -> need to set top position and height
 			var start = getScheduleTimestamp($(this).attr('data-start')),
@@ -96,9 +97,25 @@ jQuery(document).ready(function($){
 			var eventTop = self.eventSlotHeight*(start - self.timelineStart)/self.timelineUnitDuration,
 				eventHeight = self.eventSlotHeight*duration/self.timelineUnitDuration;
 			
+			var widthPercentage = 100;
+			var offset = 0;
+			var overlapping = $(this).attr('data-overlaps');
+			//Calculate overlapping events (somehow!)
+			if(overlapping)
+			{
+				widthPercentage = 50;
+				if (previousOverlaps)
+				{
+					offset = 50;
+				}
+				previousOverlaps = true;
+			}
+
 			$(this).css({
 				top: (eventTop -1) +'px',
-				height: (eventHeight+1)+'px'
+				height: (eventHeight+1)+'px',
+				width: (widthPercentage)+'%',
+				left: (offset)+'%'
 			});
 		});
 

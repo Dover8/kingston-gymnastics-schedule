@@ -77,7 +77,7 @@ Main Components
     left: 0;
     height: 100%;
     width: 100%;
-    padding-top: 50px;
+    padding-top: var(--row-height);
   }
   .cd-schedule .timeline li {
     position: relative;
