@@ -1,33 +1,16 @@
-.page-id-78 .codyhouse {
-  text-align: center;
-  margin: 40px 0;
+/* style css */
+
+
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+  box-sizing: border-box;
 }
 
-/* reset css */
-/* https://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 
-html, body, div, span, applet, object, iframe,
-blockquote, pre,
-abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, 
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section, main {
@@ -37,7 +20,12 @@ footer, header, hgroup, menu, nav, section, main {
 	line-height: 1;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
+  margin: 0;
+}
+li > ul, li > ol {
+  margin-bottom: 0;
+  margin-left: 0;
 }
 blockquote, q {
 	quotes: none;
@@ -52,39 +40,6 @@ table {
 	border-spacing: 0;
 }
 
-/* style css */
-
-
-/* -------------------------------- 
-
-Root variables
-
--------------------------------- */
-
-:root {
-  --row-height: 50px; 
-}
-
-
-/* -------------------------------- 
-
-Primary style
-
--------------------------------- */
-*, *::after, *::before {
-  box-sizing: border-box;
-}
-
-.page-id-78 html {
-  font-size: 62.5%;
-}
-
-.page-id-78 body {
-  font-size: 1.6rem;
-  font-family: "Source Sans Pro", sans-serif;
-  color: #222222;
-  background-color: white;
-}
 
 a {
   color: #A2B9B2;
@@ -161,8 +116,8 @@ Main Components
 
 @media only screen and (min-width: 1000px) {
   .cd-schedule .timeline li::after {
-    width: calc(100% - 60px);
-    left: 60px;
+    width: calc(100% - 70px);
+    left: 70px;
   }
   .cd-schedule .timeline li span {
     display: inline-block;
@@ -185,11 +140,13 @@ Main Components
 #################
 */
 
-.cd-schedule .events > ul {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  width: 100%;  
+@media only screen and (min-width: 800px) {
+  .cd-schedule .events > ul {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;  
+  }
 }
 .cd-schedule .events > ul > li {
   flex: 1 
@@ -206,8 +163,12 @@ Main Components
   padding: 0
 }
 .cd-schedule .events > ul > li {
-  padding: 5px;
+  padding: 0;
   list-style: none
+}
+.cd-schedule .events > li > ul, li > ol {
+  margin-left: 0;
+  margin-bottom: 0;
 }
 .cd-schedule .events > ul > li:first-of-type {
   padding-left: 0
@@ -240,7 +201,7 @@ Main Components
   position: relative;
   padding: 0 5%;
   /* force its children to stay on one line */
-  display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   overflow-x: scroll;
@@ -364,9 +325,9 @@ Main Components
 
 @media only screen and (min-width: 1000px) {
   .cd-schedule .events {
-    /* 60px is the .timeline element width */
-    width: calc(100% - 60px);
-    margin-left: 60px;
+    /* 70px is the .timeline element width */
+    width: calc(100% - 70px);
+    margin-left: 70px;
   }
 }
 
