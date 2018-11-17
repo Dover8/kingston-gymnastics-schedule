@@ -19,6 +19,7 @@ jQuery(document).ready(function($){
 		this.eventsGroup = this.eventsWrapper.find('.events-group');
 		this.singleEvents = this.eventsGroup.find('.single-event');
 		this.eventSlotHeight = this.eventsGroup.eq(0).children('.top-info').outerHeight();
+		this.eventSlotWidth = 50; // needs to not be a hardcoded value
 
 		this.modal = this.element.find('.event-modal');
 		this.modalHeader = this.modal.find('.header');
@@ -88,35 +89,26 @@ jQuery(document).ready(function($){
 
 	SchedulePlan.prototype.placeEvents = function() {
 		var self = this;
-		var previousOverlaps;
+		var topOffset = 0;
+		var deltaHeight = 0;
 		this.singleEvents.each(function(){
-			//place each event in the grid -> need to set top position and height
+			//offset this element by the height of the last
+			topOffset += deltaHeight;
+
+			//place each event in the grid -> need to set left position and width
 			var start = getScheduleTimestamp($(this).attr('data-start')),
 				duration = getScheduleTimestamp($(this).attr('data-end')) - start;
 
-			var eventTop = self.eventSlotHeight*(start - self.timelineStart)/self.timelineUnitDuration,
-				eventHeight = self.eventSlotHeight*duration/self.timelineUnitDuration;
-			
-			var widthPercentage = 100;
-			var offset = 0;
-			var overlapping = $(this).attr('data-overlaps');
-			//Calculate overlapping events (somehow!)
-			if(overlapping)
-			{
-				widthPercentage = 50;
-				if (previousOverlaps)
-				{
-					offset = 50;
-				}
-				previousOverlaps = true;
-			}
+			var eventWidth = self.eventSlotWidth*duration/self.timelineUnitDuration;
+			var eventLeft = self.eventSlotWidth*(start - self.timelineStart)/self.timelineUnitDuration;
 
 			$(this).css({
-				top: (eventTop -1) +'px',
-				height: (eventHeight+1)+'px',
-				width: (widthPercentage)+'%',
-				left: (offset)+'%'
+				width: (eventWidth +1) +'px',
+				top: (topOffset) +'px',
+				left: (eventLeft +1) +'px'
 			});
+
+			deltaHeight = $(this).height();
 		});
 
 		this.element.removeClass('loading');

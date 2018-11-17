@@ -85,7 +85,6 @@ Main Components
 }
 
 @media only screen and (min-width: 800px) {
-  .cd-schedule::after {
     .cd-schedule {
         width: 90%;
         max-width: 1400px;
@@ -273,9 +272,59 @@ Main Components
   transition: opacity .2s, background .2s;
 }
 
-.cd-schedule .events .single-event:last-of-type {
-  margin-right: 5%;
+
+@media only screen and (min-width: 1000px) {
+  .cd-schedule .events .top-info>span {
+      display: flex;
+      position: relative;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      font-weight: bold;
+  }
+
+
+  .cd-schedule .events .events-group>ul {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    float: left;
+      padding: 0 5%;
+      /* force its children to stay on one line */
+      /* display: -webkit-flex; */
+      /* display: -ms-flexbox; */
+      
+      justify-content: flex-start;
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+  }
+
+  .cd-schedule .events .events-group>ul::after {
+      /* never visible - used to add a right padding to .events-group > ul */
+      display: inline-block;
+      content: '-';
+      width: 1px;
+      /* height: 100%; */
+      opacity: 0;
+      color: transparent;
+  }
+
+  .cd-schedule .events .single-event {
+      /* force them to stay on one line */
+      /* -ms-flex-negative: 0; */
+      /* flex-shrink: 0; */
+      float: left;
+      height: 50px;
+      width: 50%;
+      /* max-width: 300px; */
+      box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+      margin-right: 20px;
+      -webkit-transition: opacity .2s, background .2s;
+      transition: opacity .2s, background .2s;
+  }
 }
+ .cd-schedule .events .single-event:last-of-type {
+  margin-right: 5%;
+} 
 
  .cd-schedule .events .single-event a {
   display: block;
@@ -289,6 +338,7 @@ Main Components
   }
 }
 
+/*
 @media only screen and (min-width: 800px) {
   .cd-schedule .events {
     float: left;
@@ -299,15 +349,18 @@ Main Components
     float: left;
     border: 1px solid #EAEAEA;
     /* reset style */
+
+/*
     margin-bottom: 0;
   }
   .cd-schedule .events .events-group:not(:first-of-type) {
     border-left-width: 0;
-  }
+  }*/
+@media only screen and (min-width: 800px) {
   .cd-schedule .events .top-info {
     /* vertically center its content */
     display: table;
-    height: 50px;
+    height: auto;
     border-bottom: 1px solid #EAEAEA;
     /* reset style */
     padding: 0;
@@ -317,19 +370,22 @@ Main Components
   .cd-schedule .events .top-info > span {
     /* vertically center inside its parent */
     display: table-cell;
+    height: 50px;
     vertical-align: middle;
     padding: 0 .5em;
-    text-align: center;
+    text-align: left;
     /* reset style */
     font-weight: normal;
   }
-  .cd-schedule .events .events-group > ul {
-    height: 1350px;
+
+.cd-schedule .events .events-group>ul {
     /* reset style */
     display: flex;
     overflow: visible;
     padding: 0;
-  }
+}
+
+
   .cd-schedule .events .events-group > ul::after {
     clear: both;
     content: "";
@@ -405,7 +461,7 @@ Main Components
   opacity: .7;
   line-height: 1.2;
   margin-bottom: .2em;
-}
+} 
 
 /* -------------------------------- 
 
