@@ -87,6 +87,9 @@ jQuery(document).ready(function($){
 		});
 	};
 
+	/*----------
+	/// This is where we layout the timetable
+	-----------*/
 	SchedulePlan.prototype.placeEvents = function() {
 		var self = this;
 		var topOffset = 0;
