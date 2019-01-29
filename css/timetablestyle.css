@@ -173,6 +173,7 @@ This is how it will layout on mobile devices
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
     }
+    /*remove every second one (half hour marks) */
     .cd-schedule .timeline li:nth-of-type(2n) span {
         display: none;
     }
