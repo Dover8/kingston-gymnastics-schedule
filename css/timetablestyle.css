@@ -1,13 +1,16 @@
 /* style css */
 
 /*#region Style */
+
 /* -------------------------------- 
 
 Primary style
 
 -------------------------------- */
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
     box-sizing: border-box;
 }
 
@@ -26,10 +29,6 @@ nav,
 section,
 main {
     display: none;
-}
-
-.page-id-78 body {
-    line-height: 1;
 }
 
 ol,
@@ -76,11 +75,13 @@ Main Components
 -------------------------------- */
 
 /*#region DEFAULTS*/
+
 /* -------------------------------- 
 
 This is how it will layout on mobile devices
 
 -------------------------------- */
+
 .cd-schedule {
     position: relative;
     margin: 2em 0;
@@ -96,6 +97,10 @@ This is how it will layout on mobile devices
     display: none;
 }
 
+.cd-schedule .timeline li span {
+    display: none;
+}
+
 .cd-schedule .events .top-info>span {
     display: none;
 }
@@ -103,7 +108,6 @@ This is how it will layout on mobile devices
 .cd-schedule .events>ul>li {
     flex: 1;
 }
-
 
 /*
 #################
@@ -116,25 +120,26 @@ This is how it will layout on mobile devices
     padding: 0
 }
 
-.cd-schedule .events > ul > li {
+.cd-schedule .events>ul>li {
     padding: 0;
     list-style: none
 }
 
-.cd-schedule .events > li > ul, li > ol {
+.cd-schedule .events>li>ul,
+li>ol {
     margin-left: 0;
     margin-bottom: 0;
 }
 
-.cd-schedule .events > ul > li:first-of-type {
+.cd-schedule .events>ul>li:first-of-type {
     padding-left: 0
 }
 
-.cd-schedule .events > ul > li:last-of-type {
+.cd-schedule .events>ul>li:last-of-type {
     padding-right: 0
 }
 
-.cd-schedule .events > ul > li > div {
+.cd-schedule .events>ul>li>div {
     background: #ffffff
 }
 
@@ -150,83 +155,84 @@ This is how it will layout on mobile devices
     width: 100%;
 }
 
-.cd-schedule .events .top-info > span {
-  display: inline-block;
-  line-height: 1.2;
-  margin-bottom: 10px;
-  font-weight: bold;
+.cd-schedule .events .top-info>span {
+    display: inline-block;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
-.cd-schedule .events .events-group > ul {
-  position: relative;
-  padding: 0 5%;
-  /* force its children to stay on one line */
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
+.cd-schedule .events .events-group>ul {
+    position: relative;
+    padding: 0 5%;
+    /* force its children to stay on one line */
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
-.cd-schedule .events .events-group > ul::after {
-  /* never visible - used to add a right padding to .events-group > ul */
-  display: inline-block;
-  content: '-';
-  width: 1px;
-  opacity: 0;
-  color: transparent;
+.cd-schedule .events .events-group>ul::after {
+    /* never visible - used to add a right padding to .events-group > ul */
+    display: inline-block;
+    content: '-';
+    width: 1px;
+    opacity: 0;
+    color: transparent;
 }
 
 .cd-schedule .events .single-event {
-  /* force them to stay on one line */
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  float: left;
-  height: 150px;
-  width: 70%;
-  max-width: 300px;
-  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
-  margin-right: 20px;
-  -webkit-transition: opacity .2s, background .2s;
-  transition: opacity .2s, background .2s;
+    /* force them to stay on one line */
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    float: left;
+    height: 150px;
+    width: 70%;
+    max-width: 300px;
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+    margin-right: 20px;
+    -webkit-transition: opacity .2s, background .2s;
+    transition: opacity .2s, background .2s;
 }
 
 .cd-schedule .events .single-event:last-of-type {
     margin-right: 5%;
-  } 
-  
-   .cd-schedule .events .single-event a {
+}
+
+.cd-schedule .events .single-event a {
     display: block;
     height: 100%;
     padding: .8em;
-  } 
+}
 
-  .cd-schedule.loading .events .single-event {
+.cd-schedule.loading .events .single-event {
     /* the class .loading is added by default to the .cd-schedule element
          it is removed as soon as the single events are placed in the schedule plan (using javascript) */
     opacity: 0;
-  }
-  
-  .cd-schedule .event-name,
-  .cd-schedule .event-date {
+}
+
+.cd-schedule .event-name,
+.cd-schedule .event-date {
     display: block;
     color: white;
     font-weight: bold;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .cd-schedule .event-name {
-    font-size: 1.2rem;
-  }
+}
 
-  .cd-schedule .event-date {
+.cd-schedule .event-name {
+    font-size: 1.2rem;
+}
+
+.cd-schedule .event-date {
     /* they are not included in the the HTML but added using JavScript */
     font-size: 1.0rem;
     opacity: .7;
     line-height: 1.2;
     margin-bottom: .2em;
-  } 
+}
+
 /*#endregion DEFAULTS*/
 
 /*#region StandardScreens */
