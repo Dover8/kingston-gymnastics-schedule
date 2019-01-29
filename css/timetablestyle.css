@@ -16,21 +16,6 @@ Primary style
 
 /* HTML5 display-role reset for older browsers */
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-main {
-    display: none;
-}
-
 ol,
 ul {
     list-style: none;
