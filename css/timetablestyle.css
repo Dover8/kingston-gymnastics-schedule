@@ -230,7 +230,7 @@ This is how it will layout on mobile devices
 /*#endregion DEFAULTS*/
 
 /*#region StandardScreens */
-
+/*
 @media only screen and (min-width: 800px) {
     .cd-schedule {
         width: 90%;
@@ -264,11 +264,10 @@ This is how it will layout on mobile devices
 
     .cd-schedule .timeline li {
         position: relative;
-        /* height: 50px; */
     }
     
   .cd-schedule .timeline li::after {
-    /* this is used to create the table horizontal lines */
+    /* this is used to create the table horizontal lines *//*
     content: '';
     position: absolute;
     bottom: 0;
@@ -290,7 +289,7 @@ This is how it will layout on mobile devices
 
 
 /*#region LargeScreens*/
-
+/*
 @media only screen and (min-width: 1000px) {
     .cd-schedule .timeline li::after {
         width: calc(100% - 70px);
@@ -302,7 +301,7 @@ This is how it will layout on mobile devices
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
     }
-    /*remove every second one (half hour marks) */
+    /*remove every second one (half hour marks) *//*
     .cd-schedule .timeline li:nth-of-type(2n) span {
         display: none;
     }
@@ -706,10 +705,10 @@ Modal Popups
     -webkit-transition: none;
     transition: none;
 }
-
+/*
 @media only screen and (min-width: 800px) {
     .cd-schedule .event-modal {
-        /* reset style */
+        /* reset style *//*
         right: auto;
         width: 100%;
         height: auto;
@@ -732,7 +731,7 @@ Modal Popups
         height: 100%;
     }
     .cd-schedule .event-modal .header .content {
-        /* reset style */
+        /* reset style *//*
         display: block;
         padding: .8em;
     }
@@ -745,7 +744,7 @@ Modal Popups
     }
     .cd-schedule .event-modal .header-bg,
     .cd-schedule .event-modal .body-bg {
-        /* Force Hardware acceleration */
+        /* Force Hardware acceleration *//*
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
         will-change: transform;
@@ -789,7 +788,7 @@ Modal Popups
     .cd-schedule .event-modal .header .content {
         padding: 1.2em;
     }
-}
+}*/
 
 .cd-schedule.modal-is-open .event-modal {
     /* .modal-is-open class is added as soon as an event is selected */
@@ -803,12 +802,12 @@ Modal Popups
     /* smooth scroll on iOS touch devices */
     -webkit-overflow-scrolling: touch;
 }
-
+/*
 @media only screen and (min-width: 800px) {
     .cd-schedule.animation-completed .event-modal .close,
     .cd-schedule.content-loaded.animation-completed .event-modal .event-info {
         /* 	the .animation-completed class is added when the modal animation is completed
-			the .content-loaded class is added when the modal content has been loaded (using ajax) */
+			the .content-loaded class is added when the modal content has been loaded (using ajax) *//*
         opacity: 1;
         -webkit-transition: opacity .2s;
         transition: opacity .2s;
@@ -822,7 +821,7 @@ Modal Popups
         -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
         transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
     }
-}
+}*/
 
 .cd-schedule .cover-layer {
     /* layer between the content and the modal window */
