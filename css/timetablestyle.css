@@ -1,6 +1,6 @@
 /* style css */
 
-
+/*#region Style */
 /* -------------------------------- 
 
 Primary style
@@ -67,12 +67,20 @@ a {
     text-decoration: none;
 }
 
+/*#endregion Style */
+
 /* -------------------------------- 
 
 Main Components 
 
 -------------------------------- */
 
+/*#region DEFAULTS*/
+/* -------------------------------- 
+
+This is how it will layout on mobile devices
+
+-------------------------------- */
 .cd-schedule {
     position: relative;
     margin: 2em 0;
@@ -83,6 +91,10 @@ Main Components
     content: 'mobile';
     display: none;
 }
+
+/*#endregion DEFAULTS*/
+
+/*#region StandardScreens */
 
 @media only screen and (min-width: 800px) {
     .cd-schedule {
@@ -138,6 +150,8 @@ Main Components
     }
 }
 
+/*#endregion StandardScreens*/
+
 .cd-schedule .timeline .cd-schedule .events {
     display: none;
 }
@@ -145,6 +159,8 @@ Main Components
 .cd-schedule .events .top-info>span {
     display: none;
 }
+
+/*#region LargeScreens*/
 
 @media only screen and (min-width: 1000px) {
     .cd-schedule .timeline li::after {
@@ -161,6 +177,8 @@ Main Components
         display: none;
     }
 }
+
+/*#endregion LargeScreens */
 
 /*
 .cd-schedule .events {
