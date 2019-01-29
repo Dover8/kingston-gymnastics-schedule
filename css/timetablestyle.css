@@ -526,7 +526,7 @@ Colors and hovers states
 
 .cd-schedule .single-event[data-event="event-5"],
 .cd-schedule [data-event="event-5"] .header-bg {
-    background: #f6b067;
+    background: #faaa55;
 }
 
 .cd-schedule .single-event[data-event="event-5"]:hover {
@@ -535,11 +535,11 @@ Colors and hovers states
 
 .cd-schedule .single-event[data-event="event-6"],
 .cd-schedule [data-event="event-6"] .header-bg {
-    background: #edf667;
+    background: #90963e;
 }
 
 .cd-schedule .single-event[data-event="event-6"]:hover {
-    background: #ebf77f;
+    background: #b7c062;
 }
 
 .cd-schedule .single-event[data-event="event-7"],
