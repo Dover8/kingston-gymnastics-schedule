@@ -92,66 +92,6 @@ This is how it will layout on mobile devices
     display: none;
 }
 
-/*#endregion DEFAULTS*/
-
-/*#region StandardScreens */
-
-@media only screen and (min-width: 800px) {
-    .cd-schedule {
-        width: 90%;
-        max-width: 1400px;
-        margin: 2em auto;
-    }
-    .cd-schedule::after {
-        clear: both;
-        content: "";
-        display: block;
-    }
-    .cd-schedule::before {
-        content: 'desktop';
-    }
-}
-
-.cd-schedule .timeline {
-    display: none;
-}
-
-@media only screen and (min-width: 800px) {
-    .cd-schedule .timeline {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      padding-top: 50px;
-    }
-
-    .cd-schedule .timeline li {
-        position: relative;
-        /* height: 50px; */
-    }
-    
-  .cd-schedule .timeline li::after {
-    /* this is used to create the table horizontal lines */
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: #EAEAEA;
-  }
-    .cd-schedule .timeline li:last-of-type::after {
-        display: none;
-    }
-    .cd-schedule .timeline li span {
-        display: none;
-    }
-}
-
-/*#endregion StandardScreens*/
-
 .cd-schedule .timeline .cd-schedule .events {
     display: none;
 }
@@ -160,52 +100,12 @@ This is how it will layout on mobile devices
     display: none;
 }
 
-/*#region LargeScreens*/
-
-@media only screen and (min-width: 1000px) {
-    .cd-schedule .timeline li::after {
-        width: calc(100% - 70px);
-        left: 70px;
-    }
-    .cd-schedule .timeline li span {
-        display: inline-block;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-    }
-    /*remove every second one (half hour marks) */
-    .cd-schedule .timeline li:nth-of-type(2n) span {
-        display: none;
-    }
-}
-
-/*#endregion LargeScreens */
-
-/*
-.cd-schedule .events {
-  position: relative;
-  z-index: 1;
-}
-/*
-#################
-     Layout 
-#################
-*/
-
-@media only screen and (min-width: 800px) {
-    .cd-schedule .events>ul {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        width: 100%;
-    }
-}
-
 .cd-schedule .events>ul>li {
     flex: 1;
 }
 
-/*
+
+*
 #################
      Styles 
 #################
@@ -291,6 +191,148 @@ This is how it will layout on mobile devices
   transition: opacity .2s, background .2s;
 }
 
+.cd-schedule .events .single-event:last-of-type {
+    margin-right: 5%;
+  } 
+  
+   .cd-schedule .events .single-event a {
+    display: block;
+    height: 100%;
+    padding: .8em;
+  } 
+
+  .cd-schedule.loading .events .single-event {
+    /* the class .loading is added by default to the .cd-schedule element
+         it is removed as soon as the single events are placed in the schedule plan (using javascript) */
+    opacity: 0;
+  }
+  
+  .cd-schedule .event-name,
+  .cd-schedule .event-date {
+    display: block;
+    color: white;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .cd-schedule .event-name {
+    font-size: 1.2rem;
+  }
+
+  .cd-schedule .event-date {
+    /* they are not included in the the HTML but added using JavScript */
+    font-size: 1.0rem;
+    opacity: .7;
+    line-height: 1.2;
+    margin-bottom: .2em;
+  } 
+/*#endregion DEFAULTS*/
+
+/*#region StandardScreens */
+
+@media only screen and (min-width: 800px) {
+    .cd-schedule {
+        width: 90%;
+        max-width: 1400px;
+        margin: 2em auto;
+    }
+    .cd-schedule::after {
+        clear: both;
+        content: "";
+        display: block;
+    }
+    .cd-schedule::before {
+        content: 'desktop';
+    }
+}
+
+.cd-schedule .timeline {
+    display: none;
+}
+
+@media only screen and (min-width: 800px) {
+    .cd-schedule .timeline {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      padding-top: 50px;
+    }
+
+    .cd-schedule .timeline li {
+        position: relative;
+        /* height: 50px; */
+    }
+    
+  .cd-schedule .timeline li::after {
+    /* this is used to create the table horizontal lines */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #EAEAEA;
+  }
+    .cd-schedule .timeline li:last-of-type::after {
+        display: none;
+    }
+    .cd-schedule .timeline li span {
+        display: none;
+    }
+}
+
+/*#endregion StandardScreens*/
+
+
+
+/*#region LargeScreens*/
+
+@media only screen and (min-width: 1000px) {
+    .cd-schedule .timeline li::after {
+        width: calc(100% - 70px);
+        left: 70px;
+    }
+    .cd-schedule .timeline li span {
+        display: inline-block;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    /*remove every second one (half hour marks) */
+    .cd-schedule .timeline li:nth-of-type(2n) span {
+        display: none;
+    }
+}
+
+/*#endregion LargeScreens */
+
+/*
+.cd-schedule .events {
+  position: relative;
+  z-index: 1;
+}
+/*
+#################
+     Layout 
+#################
+*/
+/*
+@media only screen and (min-width: 800px) {
+    .cd-schedule .events>ul {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+}
+*/
+
+
+
 
 /*
 @media only screen and (min-width: 1000px) {
@@ -335,16 +377,6 @@ This is how it will layout on mobile devices
       -webkit-transition: opacity .2s, background .2s;
       transition: opacity .2s, background .2s;
   }
-}
- .cd-schedule .events .single-event:last-of-type {
-  margin-right: 5%;
-} 
-
- .cd-schedule .events .single-event a {
-  display: block;
-  height: 100%;
-  padding: .8em;
-} 
 }*/
 
 /*
@@ -449,24 +481,6 @@ This is how it will layout on mobile devices
 }
 */
 
-.cd-schedule.loading .events .single-event {
-  /* the class .loading is added by default to the .cd-schedule element
-	   it is removed as soon as the single events are placed in the schedule plan (using javascript) */
-  opacity: 0;
-}
-
-.cd-schedule .event-name,
-.cd-schedule .event-date {
-  display: block;
-  color: white;
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.cd-schedule .event-name {
-  font-size: 1.2rem;
-}
 /*
 @media only screen and (min-width: 800px) {
   .cd-schedule .event-name {
@@ -475,13 +489,6 @@ This is how it will layout on mobile devices
 }
 */
 
-.cd-schedule .event-date {
-  /* they are not included in the the HTML but added using JavScript */
-  font-size: 1.0rem;
-  opacity: .7;
-  line-height: 1.2;
-  margin-bottom: .2em;
-} 
 
 /* -------------------------------- 
 
