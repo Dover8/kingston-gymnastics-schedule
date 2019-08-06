@@ -1,5 +1,3 @@
-<h1>PAGE UNDER CONSTRUCTION</h1>
-
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -10,6 +8,31 @@
 	<link rel="stylesheet" id='timetable-css' href="css/timetablestyle.css"> <!-- Resource style -->
 </head>
 <body>
+
+	<ul id="events-upcoming">
+	</ul>
+	<ul id="events-past">
+    </ul>
+	<script src="js/format-google-calendar.min.js"></script>
+    <script>
+      formatGoogleCalendar.init({
+        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/kingstongymnastics.org_7nh2823r0dllga1ubh0h6cscoo%40group.calendar.google.com/events?singleEvents=true&key=AIzaSyA-8SoMmPo6oXfuuioyhbxS1TS4p3nDWMY',
+        past: true,
+        upcoming: true,
+        sameDayTimes: true,
+        pastTopN: 20,
+        upcomingTopN: 100,
+        recurringEvents: true,
+        itemsTagName: 'li',
+        upcomingSelector: '#events-upcoming',
+        pastSelector: '#events-past',
+        upcomingHeading: '<h2>Upcoming events</h2>',
+        pastHeading: '<h2>Past events</h2>',
+        format: ['*date*', ': ', '*summary*', ' &mdash; ', '*description*'],
+        timeMin: '2019-07-01T00:00:00-22:00',
+        timeMax: '2019-10-11T00:00:00-22:00'
+      });
+    </script>
 	<div class="cd-schedule loading">
 		<div class="timeline">	
 			<ul>
