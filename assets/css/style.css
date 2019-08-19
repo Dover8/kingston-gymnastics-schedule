@@ -3535,6 +3535,18 @@ mark {
 	--cd-color-event-4-h: 31;
 	--cd-color-event-4-s: 89%;
 	--cd-color-event-4-l: 68%;
+	--cd-color-event-5: hsl(31, 89%, 68%);
+	--cd-color-event-5-h: 31;
+	--cd-color-event-5-s: 89%;
+	--cd-color-event-5-l: 68%;
+	--cd-color-event-6: hsl(31, 89%, 68%);
+	--cd-color-event-6-h: 31;
+	--cd-color-event-6-s: 89%;
+	--cd-color-event-6-l: 68%;
+	--cd-color-event-7: hsl(31, 89%, 68%);
+	--cd-color-event-7-h: 31;
+	--cd-color-event-7-s: 89%;
+	--cd-color-event-7-l: 68%;
 	--cd-color-text: hsl(0, 0%, 13%);
 	--cd-color-text-h: 0;
 	--cd-color-text-s: 0%;
@@ -3846,6 +3858,12 @@ a {
 	}
 }
 
+/* -------------------------------- 
+
+Event colours etc.
+
+-------------------------------- */
+
 .cd-schedule__event [data-event="event-1"],
 .cd-schedule-modal[data-event="event-1"] .cd-schedule-modal__header-bg {
 	background: hsl(199, 25%, 46%);
@@ -3868,6 +3886,24 @@ a {
 .cd-schedule-modal[data-event="event-4"] .cd-schedule-modal__header-bg {
 	background: hsl(31, 89%, 68%);
 	background: var(--cd-color-event-4)
+}
+
+.cd-schedule__event [data-event="event-5"],
+.cd-schedule-modal[data-event="event-5"] .cd-schedule-modal__header-bg {
+	background: hsl(31, 89%, 68%);
+	background: var(--cd-color-event-5)
+}
+
+.cd-schedule__event [data-event="event-6"],
+.cd-schedule-modal[data-event="event-6"] .cd-schedule-modal__header-bg {
+	background: hsl(31, 89%, 68%);
+	background: var(--cd-color-event-6)
+}
+
+.cd-schedule__event [data-event="event-7"],
+.cd-schedule-modal[data-event="event-7"] .cd-schedule-modal__header-bg {
+	background: hsl(31, 89%, 68%);
+	background: var(--cd-color-event-7)
 }
 
 .cd-schedule-modal {
