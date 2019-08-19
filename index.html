@@ -1,42 +1,43 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+	<script>document.getElementsByTagName("html")[0].className += " js";</script>
 	<link rel="stylesheet" id='timetable-css' href="assets/css/timetablestyle.css"> <!-- Resource style -->
 </head>
 <body>
-<div class="events">
-	<ul>
+	<div class="events">
+		<ul>
 		
-	<ul id="events-upcoming">
-	</ul>
-	<ul id="events-past">
-    </ul>
-	<script src="assets/js/format-google-calendar.min.js"></script>
-    <script>
-      formatGoogleCalendar.init({
-        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/kingstongymnastics.org_7nh2823r0dllga1ubh0h6cscoo%40group.calendar.google.com/events?singleEvents=true&key=AIzaSyA-8SoMmPo6oXfuuioyhbxS1TS4p3nDWMY',
-        past: true,
-        upcoming: true,
-        sameDayTimes: true,
-        pastTopN: 20,
-        upcomingTopN: 100,
-        recurringEvents: true,
-        itemsTagName: 'li class="events-group"',
-        upcomingSelector: '#events-upcoming',
-        pastSelector: '#events-past',
-        upcomingHeading: '<h2>Upcoming training this week</h2>',
-        pastHeading: '<h2>Completed training this week</h2>',
-        format: ['*date*', ': ', '*summary*'],
-        timeMin: '2019-07-01T00:00:00-22:00',
-        timeMax: '2019-10-11T00:00:00-22:00'
-      });
-    </script>
-	</ul>
-</div>
+		<ul id="events-upcoming">
+		</ul>
+		<ul id="events-past">
+		</ul>
+		<script src="assets/js/format-google-calendar.min.js"></script>
+		<script>
+			formatGoogleCalendar.init({
+			calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/kingstongymnastics.org_7nh2823r0dllga1ubh0h6cscoo%40group.calendar.google.com/events?singleEvents=true&key=AIzaSyA-8SoMmPo6oXfuuioyhbxS1TS4p3nDWMY',
+			past: true,
+			upcoming: true,
+			sameDayTimes: true,
+			pastTopN: 20,
+			upcomingTopN: 100,
+			recurringEvents: true,
+			itemsTagName: 'li class="events-group"',
+			upcomingSelector: '#events-upcoming',
+			pastSelector: '#events-past',
+			upcomingHeading: '<h2>Upcoming training this week</h2>',
+			pastHeading: '<h2>Completed training this week</h2>',
+			format: ['*date*', ': ', '*summary*'],
+			timeMin: '2019-07-01T00:00:00-22:00',
+			timeMax: '2019-10-11T00:00:00-22:00'
+			});
+		</script>
+		</ul>
+	</div> <!-- calendar events fetch -->
+
 	<div class="cd-schedule loading">
 		<div class="timeline">	
 			<ul>
@@ -362,9 +363,10 @@
 	
 		<div class="cover-layer"></div>
 	</div> <!-- .cd-schedule -->
-<script src="https://kingstongymnastics.org/wp-admin/js/modernizr.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>if( !window.jQuery ) document.write('<script src="assets/js/jquery-3.3.1.min.js"><\/script>');</script>
-<script src="assets/js/timetable.js"></script> <!-- Resource jQuery -->
+
+	<script src="https://kingstongymnastics.org/wp-admin/js/modernizr.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>if( !window.jQuery ) document.write('<script src="assets/js/jquery-3.3.1.min.js"><\/script>');</script>
+	<script src="assets/js/timetable.js"></script> <!-- Resource jQuery -->
 </body>
 </html>
