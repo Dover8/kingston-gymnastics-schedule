@@ -3730,13 +3730,21 @@ Main Components
 
 @media (min-width: 64rem) {
 	.js .cd-schedule__group>ul {
-		height: 950px;
-		height: calc(var(--schedule-rows-height)*var(--schedule-rows-number));
+		display: flex;
+		flex-direction: row;
+		position: relative;
+		float: left;
+		max-height: none;
+		justify-content: flex-start;
 		overflow: visible;
-		padding: 0
+		padding: 0 5%;
 	}
 	.js .cd-schedule__group>ul::after {
-		display: none
+		display: inline-block;
+		content: '-';
+		width: 1px;
+		opacity: 0;
+		color: transparent;
 	}
 }
 
@@ -3755,23 +3763,28 @@ Main Components
 
 @media (min-width: 64rem) {
 	.js .cd-schedule__top-info {
-		display: -ms-flexbox;
+		//display: table;
 		display: flex;
-		-ms-flex-align: center;
-		align-items: center;
-		-ms-flex-pack: center;
-		justify-content: center;
-		height: 50px;
-		height: var(--schedule-rows-height);
+		//-ms-flex-align: center;
+		//align-items: center;
+		//-ms-flex-pack: center;
+		//justify-content: center;
+		height: auto;
+		//height: var(--schedule-rows-height);
 		border-bottom: 1px solid hsl(0, 0%, 92%);
 		border-bottom: 1px solid var(--cd-color-border);
 		padding: 0
 	}
 	.js .cd-schedule__top-info>span {
-		font-weight: normal;
-		font-size: 0.83333em;
-		font-size: var(--text-sm);
-		margin-bottom: 0
+		display: table-cell;
+		height: var(--schedule-rows-height);
+		vertical-align: middle;
+		text-align: left;
+		font-weight: bold;
+		padding: 0 .5em;
+		//font-size: 0.83333em;
+		//font-size: var(--text-sm);
+		//margin-bottom: 0
 	}
 }
 
@@ -3779,9 +3792,9 @@ Main Components
 	-ms-flex-negative: 0;
 	flex-shrink: 0;
 	float: left;
-	height: 150px;
+	height: 100px;
 	width: 70%;
-	max-width: 300px;
+	max-width: 200px;
 	margin-right: 1.25em;
 	margin-right: var(--space-md);
 	transition: opacity .2s, background .2s
@@ -3812,6 +3825,9 @@ Main Components
 		z-index: 3;
 		width: calc(100% + 2px);
 		left: -1px;
+		-ms-flex-negative: 1;
+		flex-shrink: 1;
+		height: auto;
 		max-width: none;
 		margin-right: 0
 	}
