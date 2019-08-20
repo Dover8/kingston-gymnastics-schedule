@@ -159,7 +159,7 @@
 				eventTop = eventPosition.top,
 				eventLeft = eventPosition.left,
 				eventHeight = target.offsetHeight,
-				eventWidth = target.offsetWidth;
+				eventWidth = 150;//target.offsetWidth;
 
 			var windowWidth = window.innerWidth,
 				windowHeight = window.innerHeight;
