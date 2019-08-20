@@ -3673,6 +3673,8 @@ Main Components
 	.js .cd-schedule__events>ul {
 		display: -ms-flexbox;
 		display: flex;
+		flex-direction: column;
+		//align-items: stretch;
 		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap
 	}
@@ -3709,6 +3711,7 @@ Main Components
 	position: relative;
 	padding: 0 1.25em;
 	padding: 0 var(--component-padding);
+	display: -wedkit-flex;
 	display: -ms-flexbox;
 	display: flex;
 	overflow-x: scroll;
@@ -3827,8 +3830,17 @@ Main Components
 	}
 }
 
+.cd-schedule__event a::before {
+	display: block;
+	color: hsl(0, 0%, 100%);
+	color: var(--color-white);
+	font-weight: bold;
+	--text-xs: calc(.8em/var(--text-scale-ratio)/var(--text-scale-ratio));
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale
+}
+
 .cd-schedule__name,
-.cd-schedule__event a::before,
 .cd-schedule-modal__name,
 .cd-schedule-modal__date {
 	display: block;
