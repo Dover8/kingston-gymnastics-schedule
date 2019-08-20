@@ -104,6 +104,9 @@
 
                 deltaHeight = events[i].clientHeight;
 		    }
+            
+            //sets the height of the <ul> based on the space used by the elements
+            events[0].parentElement.style.height = (topOffset+deltaHeight)+'px';
         }
 
 		Util.removeClass(this.element, 'cd-schedule--loading');
