@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600");
+
+/*#region Style */
+
 *,
 *::after,
 *::before {
@@ -177,6 +180,8 @@ video,
 svg {
 	max-width: 100%
 }
+
+/*#endregion Style */
 
 [data-theme] {
 	background-color: hsl(0, 0%, 100%);
@@ -3593,13 +3598,20 @@ a {
 	}
 }
 
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+
 .cd-schedule__timeline {
 	display: none
 }
 
 @media (min-width: 64rem) {
 	.js .cd-schedule__timeline {
-		display: block;
+		display: none;
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -3633,8 +3645,8 @@ a {
 
 @media (min-width: 80rem) {
 	.js .cd-schedule__timeline li::after {
-		width: calc(100% - 60px);
-		left: 60px
+		width: calc(100% - 70px);
+		left: 70px
 	}
 	.js .cd-schedule__timeline li span {
 		display: inline-block;
