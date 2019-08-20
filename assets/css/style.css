@@ -3714,6 +3714,7 @@ Main Components
 	display: -wedkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+	max-height: 117px;
 	overflow-x: scroll;
 	-webkit-overflow-scrolling: touch
 }
