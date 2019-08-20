@@ -11,6 +11,9 @@
         //this currently gets ALL the events
         this.singleEvents = this.element.getElementsByClassName('cd-schedule__event');
         this.eventSlotWidth = 50;
+
+        //added in parameters
+        this.dayGroups = this.element.getElementsByClassName('cd-schedule__group');
 		
 		this.modal = this.element.getElementsByClassName('cd-schedule-modal')[0];
 		this.modalHeader = this.element.getElementsByClassName('cd-schedule-modal__header')[0];
@@ -74,34 +77,34 @@
 		var self = this,
 			slotHeight = this.topInfoElement.offsetHeight;
         
-        var topOffset = 0;
-		var deltaHeight = 0;
-        
-		for(var i = 0; i < this.singleEvents.length; i++) {
-            //offset this element by the height of the last
-			topOffset += deltaHeight;
-            console.log(topOffset);
-            var anchor = this.singleEvents[i].getElementsByTagName('a')[0];
-			var start = getScheduleTimestamp(anchor.getAttribute('data-start')),
-				duration = getScheduleTimestamp(anchor.getAttribute('data-end')) - start;
+        //run through day by day
+        for(var j = 0; j< this.dayGroups.length; j++)
+        {
+            //get the events for this day
+            var events = this.dayGroups[j].getElementsByClassName('cd-schedule__event');
+            var topOffset = 0;
+		    var deltaHeight = 0;
 
-            var eventWidth = self.eventSlotWidth*duration/self.timelineUnitDuration;
-			var eventLeft = self.eventSlotWidth*(start - self.timelineStart)/self.timelineUnitDuration;
-            this.singleEvents[i].setAttribute('style', 'top: '+(topOffset)+'px; width: '+(eventWidth +1)+'px; left: '+(eventLeft +1)+'px');
+		    for(var i = 0; i < events.length; i++) {
+                
+                //TODO: get the end time of the last element and check if 
 
-            deltaHeight = slotHeight;
 
-            /* //standard layout
-			var anchor = this.singleEvents[i].getElementsByTagName('a')[0];
-			var start = getScheduleTimestamp(anchor.getAttribute('data-start')),
-				duration = getScheduleTimestamp(anchor.getAttribute('data-end')) - start;
+                //offset this element by the height of the last
+			    topOffset += deltaHeight;
+                
+                var anchor = events[i].getElementsByTagName('a')[0];
+			    var start = getScheduleTimestamp(anchor.getAttribute('data-start')),
+				    duration = getScheduleTimestamp(anchor.getAttribute('data-end')) - start;
+                
+                //get the required position and width for the event on the timeline
+                var eventWidth = self.eventSlotWidth*duration/self.timelineUnitDuration;
+			    var eventLeft = self.eventSlotWidth*(start - self.timelineStart)/self.timelineUnitDuration;
+                events[i].setAttribute('style', 'top: '+(topOffset)+'px; width: '+(eventWidth +1)+'px; left: '+(eventLeft +1)+'px');
 
-			var eventTop = slotHeight*(start - self.timelineStart)/self.timelineUnitDuration,
-				eventHeight = slotHeight*duration/self.timelineUnitDuration;
-
-			this.singleEvents[i].setAttribute('style', 'top: '+(eventTop-1)+'px; height: '+(eventHeight +1)+'px');
-            */
-		}
+                deltaHeight = events[i].clientHeight;
+		    }
+        }
 
 		Util.removeClass(this.element, 'cd-schedule--loading');
 	};
