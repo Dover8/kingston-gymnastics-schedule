@@ -82,17 +82,36 @@
         {
             //get the events for this day
             var events = this.dayGroups[j].getElementsByClassName('cd-schedule__event');
+
             var topOffset = 0;
+			var rows = [0];
+			var selectedRow = 0;
 
-		    for(var i = 0; i < events.length; i++) {
-                
-                //TODO: get the end time of the last element and check if 
-
-
+			//for each event
+			for(var i = 0; i < events.length; i++) 
+			{
+                //get our start time, end time and duration
                 var anchor = events[i].getElementsByTagName('a')[0];
-			    var start = getScheduleTimestamp(anchor.getAttribute('data-start')),
-				    duration = getScheduleTimestamp(anchor.getAttribute('data-end')) - start;
-                
+				var start = getScheduleTimestamp(anchor.getAttribute('data-start')),
+					end = getScheduleTimestamp(anchor.getAttribute('data-end')),
+					duration = end - start;
+					
+				for (var k = 0; k < rows.length; k++)
+				{
+					if (start >= rows[k])
+					{
+						selectedRow = k;
+						rows[k] = end;
+						break;
+					}
+					//haven't found a row, add a new one
+					selectedRow = k+1;
+				}
+				if (selectedRow >= rows.length)
+				{
+					rows.push(end);
+				}
+								
 				//need to work a more dynamic way to get this value
 				topOffset = slotHeight * selectedRow;
 				
