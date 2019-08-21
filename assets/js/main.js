@@ -75,7 +75,7 @@
 	ScheduleTemplate.prototype.placeEvents = function() {
 		// on big devices - place events in the template according to their time/day
 		var self = this,
-			slotHeight = this.topInfoElement.offsetHeight;
+			slotHeight = 77;//this.topInfoElement.offsetHeight;
         
         //run through day by day
         for(var j = 0; j< this.dayGroups.length; j++)
@@ -83,30 +83,27 @@
             //get the events for this day
             var events = this.dayGroups[j].getElementsByClassName('cd-schedule__event');
             var topOffset = 0;
-		    var deltaHeight = 0;
 
 		    for(var i = 0; i < events.length; i++) {
                 
                 //TODO: get the end time of the last element and check if 
 
 
-                //offset this element by the height of the last
-			    topOffset += deltaHeight;
-                
                 var anchor = events[i].getElementsByTagName('a')[0];
 			    var start = getScheduleTimestamp(anchor.getAttribute('data-start')),
 				    duration = getScheduleTimestamp(anchor.getAttribute('data-end')) - start;
                 
+				//need to work a more dynamic way to get this value
+				topOffset = slotHeight * selectedRow;
+				
                 //get the required position and width for the event on the timeline
                 var eventWidth = self.eventSlotWidth*duration/self.timelineUnitDuration;
 			    var eventLeft = self.eventSlotWidth*(start - self.timelineStart)/self.timelineUnitDuration;
                 events[i].setAttribute('style', 'top: '+(topOffset)+'px; width: '+(eventWidth +1)+'px; left: '+(eventLeft +1)+'px');
-
-                deltaHeight = events[i].clientHeight;
 		    }
             
             //sets the height of the <ul> based on the space used by the elements
-            events[0].parentElement.style.height = (topOffset+deltaHeight)+'px';
+            events[0].parentElement.style.height = (rows.length * slotHeight)+'px';
         }
 
 		Util.removeClass(this.element, 'cd-schedule--loading');
