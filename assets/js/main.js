@@ -10,10 +10,12 @@
 		this.topInfoElement = this.element.getElementsByClassName('cd-schedule__top-info')[0];
         //this currently gets ALL the events
         this.singleEvents = this.element.getElementsByClassName('cd-schedule__event');
-        this.eventSlotWidth = 50;
+		
 
         //added in parameters
-        this.dayGroups = this.element.getElementsByClassName('cd-schedule__group');
+		this.dayGroups = this.element.getElementsByClassName('cd-schedule__group');
+		//dynamic slot width based on slots and parent width
+		this.eventSlotWidth = this.dayGroups[0].offsetWidth / this.timelineItems.length;
 		
 		this.modal = this.element.getElementsByClassName('cd-schedule-modal')[0];
 		this.modalHeader = this.element.getElementsByClassName('cd-schedule-modal__header')[0];
