@@ -81,7 +81,16 @@
         for(var j = 0; j< this.dayGroups.length; j++)
         {
             //get the events for this day
-            var events = this.dayGroups[j].getElementsByClassName('cd-schedule__event');
+			var events = this.dayGroups[j].getElementsByClassName('cd-schedule__event');
+
+			//sort the events by start time
+			events = [].slice.call(events).sort(function(a,b) {
+				var anchorA = a.getElementsByTagName('a')[0];
+				var startA = getScheduleTimestamp(anchorA.getAttribute('data-start'));
+				var anchorB = b.getElementsByTagName('a')[0];
+				var startB = getScheduleTimestamp(anchorB.getAttribute('data-start'));
+				return startA-startB;
+			});
 
             var topOffset = 0;
 			var rows = [0];
