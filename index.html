@@ -4,9 +4,27 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script>document.getElementsByTagName("html")[0].className += " js";</script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/2.10.6/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    
 	<link rel="stylesheet" href="assets/css/style.css"> <!-- Resource style -->
 </head>
 <body>
+    
+    <p>Select the week to view:</p>
+    <div class="container">    
+        <div style="position: relative">
+            <div class="col-sm-6 form-group">
+                <div class="input-group" id="DateDemo">
+                  <input type='text' id='weeklyDatePicker' placeholder="Select Week" />
+              </div>
+          </div>
+      </div>
+    </div>
+    <script src="assets/js/DateDemo.js"></script>
+            
 	<div class="events">
 		<ul>
 		<ul id="events-past">

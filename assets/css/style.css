@@ -4249,4 +4249,7 @@ Event colours etc.
 .cd-article-link:hover {
 	opacity: 0.8
 }
+
+.bootstrap-datetimepicker-widget .datepicker-days table tbody tr:hover {
+    background-color: #eee;
 }
