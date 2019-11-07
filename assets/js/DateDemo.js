@@ -25,6 +25,7 @@ jQuery(document).ready(function(){
                 past: true,
                 upcoming: true,
                 sameDayTimes: true,
+                dayNames: true,
                 pastTopN: 100,
                 upcomingTopN: 100,
                 recurringEvents: true,
@@ -55,6 +56,8 @@ jQuery(document).ready(function(){
             pastResult = [],
             upcomingResult = [],
             upcomingResultTemp = [],
+            mondayResult = [],
+            mondayElem = document.querySelector('#monday'),
             upcomingElem = document.querySelector(settings.upcomingSelector),
             pastElem = document.querySelector(settings.pastSelector),
             i;
@@ -85,7 +88,12 @@ jQuery(document).ready(function(){
         }
         
         for (i in result) {
-
+            //day check
+            var day = getDayNameFormatted(getDateInfo(result[i].start.dateTime));
+            if (day == 'Monday ') {
+                mondayResult.push(result[i]);
+            }
+            
             if (isPast(result[i].end.dateTime || result[i].end.date)) {
                 if (pastCounter < settings.pastTopN) {
                     pastResult.push(result[i]);
@@ -104,7 +112,14 @@ jQuery(document).ready(function(){
                 upcomingCounter++;
             }
         }
+        
+        //here we run through mondays items and create new events as <li>
+        for (i in mondayResult) {
+            mondayElem.insertAdjacentHTML('beforeend', timetableListItem(mondayResult[i], 'cd-schedule__event'))
+        }
+            
 
+        //from here is where we need to have a new format for feeding to the HTML
         for (i in pastResult) {
             pastElem.insertAdjacentHTML('beforeend', transformationList(pastResult[i], settings.itemsTagName, settings.format));
         }
@@ -196,6 +211,43 @@ jQuery(document).ready(function(){
 
         return isSame;
     }
+    
+    //NEW format the data for the timetable layout
+    const timetableListItem = (result, tagName) => {
+        var dateStart = getDateInfo(result.start.dateTime || result.start.date),
+            dateEnd = getDateInfo(result.end.dateTime || result.end.date),
+            dayNames = config.dayNames,
+            moreDaysEvent = false,
+            isAllDayEvent = isAllDay(dateStart, dateEnd);
+        
+        if (typeof result.end.date !== 'undefined') {
+            dateEnd = subtractOneDay(dateEnd);
+        }
+
+        if (!isSameDay(dateStart, dateEnd)) {
+            moreDaysEvent = true;
+        }
+        
+        var dateFormatted = getFormattedDate(dateStart, dateEnd, dayNames, moreDaysEvent, isAllDayEvent),
+            output = '<li class="' + tagName + '">',
+            //summary = result.summary || '',
+            description = result.description || '',
+            //location = result.location || '',
+            i;
+        /* FORMAT TO THIS
+        <li class="cd-schedule__event">
+            <a data-start="17:30" data-end="19:30" data-content="event-adv-tumble" data-event="event-1" href="#0">
+                <em class="cd-schedule__name">ADV Tumble</em>
+            </a>
+        </li>*/
+            output = output.concat('<a ');
+            output = output.concat('data-start="' + dateStart[3] + ':' + dateStart[4] + '" ');
+            output = output.concat('data-end="' + dateEnd[3] + ':' + dateEnd[4] + '" ');
+            output = output.concat('data-content="' + description +'" data-event="event-1" href="#0">');
+        
+        return output + '</' + tagName + '>';
+        
+    }
 
     //Get all necessary data (dates, location, summary, description) and creates a list item
     const transformationList = (result, tagName, format) => {
@@ -257,7 +309,7 @@ jQuery(document).ready(function(){
         return false;
     };
 
-    //Get temp array with information abou day in followin format: [day number, month number, year, hours, minutes]
+    //Get temp array with information about day in followin format: [day number, month number, year, hours, minutes]
     const getDateInfo = date => {
         date = new Date(date);
         return [date.getDate(), date.getMonth(), date.getFullYear(), date.getHours(), date.getMinutes(), 0, 0];
