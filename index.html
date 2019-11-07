@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>   
+
 </head>
 <body>
     
@@ -25,37 +26,46 @@
             </div>
       </div>
     </div>
+    <ul>
+        <ul id="events-past">
+        </ul>
+        <ul id="events-upcoming">
+        </ul>
+    </ul>
     <script src="assets/js/DateDemo.js"></script>
             
-	<div class="events">
-		<ul>
-		<ul id="events-past">
-		</ul>
-		<ul id="events-upcoming">
-		</ul>
-		
-		<script src="assets/js/format-google-calendar.min.js"></script>
-		<script>
-			formatGoogleCalendar.init({
-			calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/kingstongymnastics.org_7nh2823r0dllga1ubh0h6cscoo%40group.calendar.google.com/events?singleEvents=true&key=AIzaSyA-8SoMmPo6oXfuuioyhbxS1TS4p3nDWMY',
-			past: true,
-			upcoming: true,
-			sameDayTimes: true,
-			pastTopN: 20,
-			upcomingTopN: 100,
-			recurringEvents: true,
-			itemsTagName: 'li class="events-group"',
-			upcomingSelector: '#events-upcoming',
-			pastSelector: '#events-past',
-			upcomingHeading: '<h2>Upcoming training this week</h2>',
-			pastHeading: '<h2>Completed training this week</h2>',
-			format: ['*date*', ': ', '*summary*'],
-			timeMin: '2019-07-01T00:00:00-22:00',
-			timeMax: '2019-10-11T00:00:00-22:00'
-			});
-		</script>
     <link rel="stylesheet" href="assets/css/reset.css"> <!-- Resource style -->
     <link rel="stylesheet" href="assets/css/style.css"> <!-- Resource style -->
+    
+    <!--<p>Selected week: </p>
+    <div class="events">
+        <ul>
+            <ul id="events-past">
+            </ul>
+            <ul id="events-upcoming">
+            </ul>
+            
+		  	            
+            <script src="assets/js/format-google-calendar.min.js"></script>
+            <script>
+                formatGoogleCalendar.init({
+                calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/kingstongymnastics.org_7nh2823r0dllga1ubh0h6cscoo%40group.calendar.google.com/events?singleEvents=true&key=AIzaSyA-8SoMmPo6oXfuuioyhbxS1TS4p3nDWMY',
+                past: true,
+                upcoming: true,
+                sameDayTimes: true,
+                pastTopN: 20,
+                upcomingTopN: 100,
+                recurringEvents: true,
+                itemsTagName: 'li class="events-group"',
+                upcomingSelector: '#events-upcoming',
+                pastSelector: '#events-past',
+                upcomingHeading: '<h2>Upcoming training this week</h2>',
+                pastHeading: '<h2>Completed training this week</h2>',
+                format: ['*date*', ': ', '*summary*'],
+                timeMin: '2019-11-04T10:00:00-07:00',
+                timeMax: '2019-11-10T22:00:00-07:00'
+                });
+            </script>
 		</ul>
 	</div> <!-- calendar events fetch -->
 
