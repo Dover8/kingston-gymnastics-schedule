@@ -133,7 +133,10 @@
 		    }
             
             //sets the height of the <ul> based on the space used by the elements
-            events[0].parentElement.style.height = (rows.length * slotHeight)+'px';
+            if (events.length > 0)
+            {
+                events[0].parentElement.style.height = (rows.length * slotHeight)+'px';
+            }
         }
 
 		Util.removeClass(this.element, 'cd-schedule--loading');
