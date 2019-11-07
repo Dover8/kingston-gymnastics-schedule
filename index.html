@@ -3,24 +3,26 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script>document.getElementsByTagName("html")[0].className += " js";</script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/2.10.6/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-    
+	
+    <script>document.getElementsByTagName("html")[0].className += " js";</script>
 	<link rel="stylesheet" href="assets/css/style.css"> <!-- Resource style -->
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/2.10.6/moment.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>   
 </head>
 <body>
     
-    <p>Select the week to view:</p>
     <div class="container">    
+        <h3>Select the week to view:</h3>
         <div style="position: relative">
-            <div class="col-sm-6 form-group">
-                <div class="input-group" id="DateDemo">
-                  <input type='text' id='weeklyDatePicker' placeholder="Select Week" />
-              </div>
-          </div>
+            <div class="input-group" id="DateDemo">
+                <input type='text' id='datepicker'/>
+            </div>
       </div>
     </div>
     <script src="assets/js/DateDemo.js"></script>
@@ -52,6 +54,8 @@
 			timeMax: '2019-10-11T00:00:00-22:00'
 			});
 		</script>
+    <link rel="stylesheet" href="assets/css/reset.css"> <!-- Resource style -->
+    <link rel="stylesheet" href="assets/css/style.css"> <!-- Resource style -->
 		</ul>
 	</div> <!-- calendar events fetch -->
 
