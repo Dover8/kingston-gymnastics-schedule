@@ -104,6 +104,11 @@ jQuery(document).ready(function(){
         for (i in mondayResult) {
             mondayElem.insertAdjacentHTML('beforeend', timetableListItem(mondayResult[i], 'cd-schedule__event'))
         }
+        
+        //remove the loaded class
+        Util.removeClass(main.element, 'js-schedule-loaded');
+        //and reinitialise the schedule
+        main.initSchedule();
     };
 
     //Gets JSON from Google Calendar and transfroms it into html list items and appends it to past or upcoming events list

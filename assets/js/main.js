@@ -1,3 +1,5 @@
+var main;
+
 (function() {
 	// Schedule Template - by CodyHouse.co
 	function ScheduleTemplate( element ) {
@@ -34,6 +36,9 @@
 		this.supportAnimation = Util.cssSupports('transition');
 
 		this.initSchedule();
+        //WARNING: if using multiple blocks, main will be the last
+        //i.e for the weekend in original design
+        main = this;
 	};
 
 	ScheduleTemplate.prototype.initSchedule = function() {
