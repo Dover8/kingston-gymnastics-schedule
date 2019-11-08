@@ -61,6 +61,7 @@ jQuery(document).ready(function(){
             }
         }
         
+        result.reverse();
         
         //here we run through mondays items and create new events as <li>
         for (i in result) {
