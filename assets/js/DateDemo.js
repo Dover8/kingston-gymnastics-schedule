@@ -76,10 +76,13 @@ jQuery(document).ready(function(){
             
         }
         
-        //remove the loaded class
-        Util.removeClass(main.element, 'js-schedule-loaded');
-        //and reinitialise the schedule
-        main.initSchedule();
+        for (c in calendar)
+        {
+            //remove the loaded class
+            Util.removeClass(calendar[c].element, 'js-schedule-loaded');
+            //and reinitialise the schedule
+            calendar[c].initSchedule();
+        }
     };
 
     //Gets JSON from Google Calendar and transfroms it into html list items and appends it to past or upcoming events list
