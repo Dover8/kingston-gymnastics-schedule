@@ -98,47 +98,12 @@ jQuery(document).ready(function(){
                 mondayResult.push(result[i]);
             }
             
-            if (isPast(result[i].end.dateTime || result[i].end.date)) {
-                if (pastCounter < settings.pastTopN) {
-                    pastResult.push(result[i]);
-                    pastCounter++;
-                }
-            } else {
-                upcomingResultTemp.push(result[i]);
-            }
-        }
-        pastResult.reverse();
-        upcomingResultTemp.reverse();
-
-        for (i in upcomingResultTemp) {
-            if (upcomingCounter < settings.upcomingTopN) {
-                upcomingResult.push(upcomingResultTemp[i]);
-                upcomingCounter++;
-            }
         }
         
         //here we run through mondays items and create new events as <li>
         for (i in mondayResult) {
             mondayElem.insertAdjacentHTML('beforeend', timetableListItem(mondayResult[i], 'cd-schedule__event'))
         }
-            
-
-        //from here is where we need to have a new format for feeding to the HTML
-        for (i in pastResult) {
-            pastElem.insertAdjacentHTML('beforeend', transformationList(pastResult[i], settings.itemsTagName, settings.format));
-        }
-
-        for (i in upcomingResult) {
-            upcomingElem.insertAdjacentHTML('beforeend', transformationList(upcomingResult[i], settings.itemsTagName, settings.format));
-        }
-
-//        if (upcomingElem.firstChild) {
-//            upcomingElem.insertAdjacentHTML('beforebegin', settings.upcomingHeading);
-//        }
-//
-//        if (pastElem.firstChild) {
-//            pastElem.insertAdjacentHTML('beforebegin', settings.pastHeading);
-//        }
     };
 
     //Gets JSON from Google Calendar and transfroms it into html list items and appends it to past or upcoming events list
