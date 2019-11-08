@@ -50,12 +50,27 @@ jQuery(document).ready(function(){
             i;
 
         // first clear existing list
+        for(var i = 0; i < 7; i++)
+        {
+            var day = getDayName(i);
+            dailyElem = document.querySelector("#"+day);
+            if (dailyElem !=null) {
+                while(dailyElem.childElementCount > 0) {
+                    dailyElem.removeChild(dailyElem.lastChild);
+                }
+            }
         }
         
         
+        //here we run through mondays items and create new events as <li>
         for (i in result) {
             //day check
             var day = getDayNameFormatted(getDateInfo(result[i].start.dateTime));
+            //find the element for that day
+            var dailyElem = document.querySelector("#"+day);
+            //feed in the formatted HTML
+            if (dailyElem !=null) {
+                dailyElem.insertAdjacentHTML('beforeend', timetableListItem(result[i], 'cd-schedule__event'));
             }
             
         }
