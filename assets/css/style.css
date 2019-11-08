@@ -3914,7 +3914,7 @@ Event colours etc.
 /*event 0 is used for default when event type hasn't been saved on the calendar.*/
 .cd-schedule__event [data-event="event-0"],
 .cd-schedule-modal[data-event="event-0"] .cd-schedule-modal__header-bg {
-	background: hsl(31, 89%, 68%);
+	background: hsl(236, 71%, 38%);
 	background: var(--cd-color-event-0)
 }
 
