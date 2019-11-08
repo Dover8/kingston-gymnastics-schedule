@@ -3530,31 +3530,38 @@ mark {
 	--cd-color-event-0-h: 236;
 	--cd-color-event-0-s: 71%;
 	--cd-color-event-0-l: 38%;
-	--cd-color-event-1: hsl(199, 25%, 46%);
-	--cd-color-event-1-h: 199;
-	--cd-color-event-1-s: 25%;
-	--cd-color-event-1-l: 46%;
-	--cd-color-event-2: hsl(271, 23%, 26%);
-	--cd-color-event-2-h: 271;
-	--cd-color-event-2-s: 23%;
-	--cd-color-event-2-l: 26%;
-	--cd-color-event-3: hsl(162, 14%, 68%);
-	--cd-color-event-3-h: 162;
-	--cd-color-event-3-s: 14%;
-	--cd-color-event-3-l: 68%;
-	--cd-color-event-4: hsl(31, 89%, 68%);
-	--cd-color-event-4-h: 31;
-	--cd-color-event-4-s: 89%;
-	--cd-color-event-4-l: 68%;
-	--cd-color-event-5: hsl(31, 89%, 68%);
-	--cd-color-event-5-h: 31;
-	--cd-color-event-5-s: 89%;
-	--cd-color-event-5-l: 68%;
-	--cd-color-event-6: hsl(31, 89%, 68%);
+    /* rec */
+	--cd-color-event-1: hsl(23, 100%, 50%);
+	--cd-color-event-1-h: 23;
+	--cd-color-event-1-s: 100%;
+	--cd-color-event-1-l: 50%;
+    /* acro */
+	--cd-color-event-2: hsl(40, 81%, 61%);
+	--cd-color-event-2-h: 40;
+	--cd-color-event-2-s: 81%;
+	--cd-color-event-2-l: 61%;
+    /* tumble */
+	--cd-color-event-3: hsl(177, 54%, 44%);
+	--cd-color-event-3-h: 177;
+	--cd-color-event-3-s: 54%;
+	--cd-color-event-3-l: 44%;
+    /* display */
+	--cd-color-event-4: hsl(217, 83%, 57%);
+	--cd-color-event-4-h: 217;
+	--cd-color-event-4-s: 83%;
+	--cd-color-event-4-l: 57%;
+	/* adult */
+    --cd-color-event-5: hsl(0, 57%, 62%);
+	--cd-color-event-5-h: 0;
+	--cd-color-event-5-s: 57%;
+	--cd-color-event-5-l: 62%;
+	
+    --cd-color-event-6: hsl(31, 89%, 68%);
 	--cd-color-event-6-h: 31;
 	--cd-color-event-6-s: 89%;
 	--cd-color-event-6-l: 68%;
-	--cd-color-event-7: hsl(31, 89%, 68%);
+	
+    --cd-color-event-7: hsl(31, 89%, 68%);
 	--cd-color-event-7-h: 31;
 	--cd-color-event-7-s: 89%;
 	--cd-color-event-7-l: 68%;
@@ -3926,7 +3933,7 @@ Event colours etc.
 
 .cd-schedule__event [data-event="event-2"],
 .cd-schedule-modal[data-event="event-2"] .cd-schedule-modal__header-bg {
-	background: hsl(271, 23%, 26%);
+	background: hsl(40, 81%, 61%);
 	background: var(--cd-color-event-2)
 }
 
