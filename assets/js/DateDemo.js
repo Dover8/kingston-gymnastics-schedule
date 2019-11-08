@@ -26,14 +26,8 @@ jQuery(document).ready(function(){
                 upcoming: true,
                 sameDayTimes: true,
                 dayNames: true,
-                pastTopN: 100,
-                upcomingTopN: 100,
                 recurringEvents: true,
                 itemsTagName: 'li class="events-group"',
-                upcomingSelector: '#events-upcoming',
-                pastSelector: '#events-past',
-                upcomingHeading: '<h2>Upcoming training this week</h2>',
-                pastHeading: '<h2>Completed training this week</h2>',
                 format: ['*date*', ': ', '*summary*'],
                 timeMin: firstDate+'T07:00:00-07:00',
                 timeMax: lastDate+'T22:00:00-07:00'
@@ -51,58 +45,19 @@ jQuery(document).ready(function(){
         //Remove cancelled events, sort by date
         result = data.items.filter(item => item && item.hasOwnProperty('status') && item.status !== 'cancelled').sort(comp).reverse();
         
-        var pastCounter = 0,
-            upcomingCounter = 0,
-            pastResult = [],
-            upcomingResult = [],
-            upcomingResultTemp = [],
-            mondayResult = [],
-            mondayElem = document.querySelector('#monday'),
-            upcomingElem = document.querySelector(settings.upcomingSelector),
-            pastElem = document.querySelector(settings.pastSelector),
+        var dailyResults = [],
+            dailyElem = [],
             i;
 
         // first clear existing list
-        while(upcomingElem.childElementCount > 0) {
-            upcomingElem.removeChild(upcomingElem.lastChild);
         }
         
-        while(pastElem.childElementCount > 0) {
-            pastElem.removeChild(pastElem.lastChild);
-        }
-        
-        while(mondayElem.childElementCount > 0) {
-            mondayElem.removeChild(mondayElem.lastChild);
-        }
-        
-        if (settings.pastTopN === -1) {
-            settings.pastTopN = result.length;
-        }
-
-        if (settings.upcomingTopN === -1) {
-            settings.upcomingTopN = result.length;
-        }
-
-        if (settings.past === false) {
-            settings.pastTopN = 0;
-        }
-
-        if (settings.upcoming === false) {
-            settings.upcomingTopN = 0;
-        }
         
         for (i in result) {
             //day check
             var day = getDayNameFormatted(getDateInfo(result[i].start.dateTime));
-            if (day == 'Monday ') {
-                mondayResult.push(result[i]);
             }
             
-        }
-        
-        //here we run through mondays items and create new events as <li>
-        for (i in mondayResult) {
-            mondayElem.insertAdjacentHTML('beforeend', timetableListItem(mondayResult[i], 'cd-schedule__event'))
         }
         
         //remove the loaded class
@@ -148,6 +103,7 @@ jQuery(document).ready(function(){
         
         request.send();
     };
+    
     //Overwrites defaultSettings values with overrideSettings and adds overrideSettings if non existent in defaultSettings
     const mergeOptions = (defaultSettings, overrideSettings) => {
         var newObject = {},
