@@ -71,6 +71,10 @@ jQuery(document).ready(function(){
             pastElem.removeChild(pastElem.lastChild);
         }
         
+        while(mondayElem.childElementCount > 0) {
+            mondayElem.removeChild(mondayElem.lastChild);
+        }
+        
         if (settings.pastTopN === -1) {
             settings.pastTopN = result.length;
         }
