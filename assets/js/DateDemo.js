@@ -204,8 +204,8 @@ jQuery(document).ready(function(){
         
         var dateFormatted = getFormattedDate(dateStart, dateEnd, dayNames, moreDaysEvent, isAllDayEvent),
             output = '<li class="' + tagName + '">',
-            //summary = result.summary || '',
-            description = result.description || '',
+            summary = result.summary || '',
+            description = result.description || 'event-0',
             //location = result.location || '',
             i;
         /* FORMAT TO THIS
@@ -221,9 +221,10 @@ jQuery(document).ready(function(){
         endMinute = (endMinute < 10 ? '0' : '') + endMinute;
         
             output = output.concat('<a ');
-            output = output.concat('data-content="' + description +'" data-event="event-1" href="#0">');
             output = output.concat('data-start="' + dateStart[3] + ':' + startMinute + '" ');
             output = output.concat('data-end="' + dateEnd[3] + ':' + endMinute + '" ');
+            output = output.concat(`data-content="${summary}" data-event="${description}" href="#0">`);
+        output = output.concat(`<em class="cd-schedule__name">${summary}</em>`);
         
         return output + '</' + tagName + '>';
         

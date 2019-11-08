@@ -3526,6 +3526,10 @@ mark {
 }
 
 :root {
+    --cd-color-event-0: hsl(236, 71%, 38%);
+	--cd-color-event-0-h: 236;
+	--cd-color-event-0-s: 71%;
+	--cd-color-event-0-l: 38%;
 	--cd-color-event-1: hsl(199, 25%, 46%);
 	--cd-color-event-1-h: 199;
 	--cd-color-event-1-s: 25%;
@@ -3906,6 +3910,13 @@ Main Components
 Event colours etc.
 
 -------------------------------- */
+
+/*event 0 is used for default when event type hasn't been saved on the calendar.*/
+.cd-schedule__event [data-event="event-0"],
+.cd-schedule-modal[data-event="event-0"] .cd-schedule-modal__header-bg {
+	background: hsl(31, 89%, 68%);
+	background: var(--cd-color-event-0)
+}
 
 .cd-schedule__event [data-event="event-1"],
 .cd-schedule-modal[data-event="event-1"] .cd-schedule-modal__header-bg {
