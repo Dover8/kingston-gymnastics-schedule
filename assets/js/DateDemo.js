@@ -214,10 +214,16 @@ jQuery(document).ready(function(){
                 <em class="cd-schedule__name">ADV Tumble</em>
             </a>
         </li>*/
+        //format the minutes to be 00 format
+        var startMinute = dateStart[4];
+        startMinute = (startMinute < 10 ? '0' : '') + startMinute;
+        var endMinute = dateEnd[4];
+        endMinute = (endMinute < 10 ? '0' : '') + endMinute;
+        
             output = output.concat('<a ');
-            output = output.concat('data-start="' + dateStart[3] + ':' + dateStart[4] + '" ');
-            output = output.concat('data-end="' + dateEnd[3] + ':' + dateEnd[4] + '" ');
             output = output.concat('data-content="' + description +'" data-event="event-1" href="#0">');
+            output = output.concat('data-start="' + dateStart[3] + ':' + startMinute + '" ');
+            output = output.concat('data-end="' + dateEnd[3] + ':' + endMinute + '" ');
         
         return output + '</' + tagName + '>';
         
