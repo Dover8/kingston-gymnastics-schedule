@@ -4,10 +4,11 @@ jQuery(document).ready(function($){
 	//if browser does not support transitions - use a different event to trigger them
 	if( !transitionsSupported ) transitionEnd = 'noTransition';
 	
-	//should add a loding while the events are organized 
+	//should add a loading while the events are organized 
 
 	function SchedulePlan( element ) {
 		this.element = element;
+        //get the timeline slots
 		this.timeline = this.element.find('.timeline');
 		this.timelineItems = this.timeline.find('li');
 		this.timelineItemsNumber = this.timelineItems.length;

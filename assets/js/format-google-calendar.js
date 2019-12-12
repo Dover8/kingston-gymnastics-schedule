@@ -287,7 +287,7 @@ window.formatGoogleCalendar = function () {
         return false;
     };
 
-    //Get temp array with information abou day in followin format: [day number, month number, year, hours, minutes]
+    //Get temp array with information about day in followin format: [day number, month number, year, hours, minutes]
     var getDateInfo = function getDateInfo(date) {
         date = new Date(date);
         return [date.getDate(), date.getMonth(), date.getFullYear(), date.getHours(), date.getMinutes(), 0, 0];
